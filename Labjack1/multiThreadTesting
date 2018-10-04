@@ -1,0 +1,53 @@
+import threading
+import time
+
+arr1=[]
+arr2=[]
+i=0
+j=20000
+
+def printa(p) :
+    #p = []
+    #while i<1000:
+    global i
+    p.append(i)
+    i+=1
+    # print(i,"+")
+    #for x in range(len(arr1)):
+     #   print(arr1[x])
+
+
+def printb(q) :
+    #j=1000
+    #a = [1000]
+    #while j<1999:
+    global j
+    q.append(j)
+    j+=1
+    # print(j,"*")
+    #for x in range(len(arr2)):
+     #   print(arr2[x])
+
+aa1=time.time()
+aa2=time.time()
+while aa2-aa1<5:
+    t1 = threading.Thread(target=printa(arr1))
+    t2 = threading.Thread(target=printb(arr2))
+    t1.start()
+    t2.start()
+    aa2=time.time()
+
+    # t1.join()
+    # t2.join()
+
+# for y in range(len(arr1)):
+#    print(arr1[y])
+
+# for x in range(len(arr2)):
+#    print(arr2[x])
+
+print(arr1[-1])
+print(arr2[-1])
+
+
+
